@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServiceAuthenticationJWT";
+
+package authentication;
+
+// The authentication service definition.
+service Authentication {
+  // Sends a request of auth
+  rpc Authenticate (AuthenticationRequest) returns (AuthenticationResponse);
+}
+
+// The request message containing the user's name and password.
+message AuthenticationRequest {
+  string UserName = 1;
+  string Password = 2;
+}
+
+// The response message containing auth information.
+message AuthenticationResponse {
+  string AccessToken = 1;
+  int64 ExpiresIn = 2;
+}

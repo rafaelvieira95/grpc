@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServiceAuthenticationJWT";
+
+package calc;
+
+// The math service definition.
+service Calc {
+  // Sends a calc
+  rpc Add (CalcRequest) returns (CalcResponse);
+  rpc Subtract (CalcRequest) returns (CalcResponse);
+  rpc Multiply (CalcRequest) returns (CalcResponse);
+  rpc Division (CalcRequest) returns (CalcResponse);
+}
+
+// The request message containing the user's name and password.
+message CalcRequest {
+  double X = 1;
+  double Y = 2;
+}
+
+// The response message containing auth information.
+message CalcResponse {
+  double Result = 1;
+}
